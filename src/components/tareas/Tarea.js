@@ -1,4 +1,5 @@
 import React from "react";
+
 const Tarea = ({ tarea }) => {
   return (
     <li className="tarea sombra">
