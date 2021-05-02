@@ -2,7 +2,6 @@ import React, { Fragment, useContext } from "react";
 import Tarea from "./Tarea";
 import proyectoContext from "../../context/proyectos/proyectoContext";
 import tareaContext from "../../context/tareas/tareaContext";
-import tareaReducer from "../../context/tareas/tareaReducer";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ListadoTareas = () => {
