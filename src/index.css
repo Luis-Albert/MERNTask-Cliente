@@ -90,6 +90,21 @@ a {
   background-color: transparent;
 }
 
+.btn-eliminar {
+  background-color: var(--blanco);
+  padding: 0.5rem 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+.btn-eliminar:hover {
+  background-color: var(--gris1);
+}
+
+.cerrar-sesion {
+  color: var(--blanco);
+}
+
 @media (min-width: 768px) {
   .contenedor-app {
     display: flex;
@@ -111,7 +126,7 @@ aside {
 }
 
 .formulario-nuevo-proyecto {
-  margin-top: 7rem;
+  margin-top: 6rem;
 }
 .formulario-nuevo-proyecto .input-text {
   border-bottom: 1px solid var(--gris2);
@@ -136,6 +151,7 @@ aside {
 .app-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--gris2);
   padding: 4rem;
 }
