@@ -22,13 +22,10 @@ const AlertaState = (props) => {
     });
 
     setTimeout(() => {
-      dispatch(
-        {
-          type: OCULTAR_ALERTA,
-        },
-        5000
-      );
-    });
+      dispatch({
+        type: OCULTAR_ALERTA,
+      });
+    }, 5000);
   };
 
   return (
