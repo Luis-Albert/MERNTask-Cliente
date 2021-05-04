@@ -80,7 +80,7 @@ const AuthState = (props) => {
         payload: respuesta.data,
       });
       //obtener usuario
-      usuarioAutenticado();
+     usuarioAutenticado();
     } catch (error) {
       console.log(error.response.data.msg);
       const alerta = {
@@ -96,7 +96,6 @@ const AuthState = (props) => {
   };
 
   //cierra la session del usuario
-
   const cerrarSesion = () => {
     dispatch({
       type: CERRAR_SESION,

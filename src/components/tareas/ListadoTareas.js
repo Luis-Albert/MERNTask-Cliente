@@ -17,12 +17,10 @@ const ListadoTareas = () => {
   if (!proyecto) return <h2>Selecciona un proyecto</h2>;
   //Array destructurin para acceder al proyecto actual
   const [proyectoActual] = proyecto;
-
   //Eliminar un proyceto
   const onClickEliminar = () => {
     eliminarProyecto(proyectoActual._id);
   };
-
   return (
     <Fragment>
       <h2>Proyecto: {proyectoActual.nombre}</h2>

@@ -20,6 +20,7 @@ const Login = (props) => {
     if (mensaje) {
       mostrarAlerta(mensaje.msg, mensaje.categoria);
     }
+    // eslint-disable-next-line
   }, [mensaje, autenticado, props.history]);
 
   const [usuario, guardarUsuario] = useState({
@@ -67,9 +68,10 @@ const Login = (props) => {
             />
           </div>
           <div className="campo-form">
-            <label htmlFor="Password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
+              autoComplete="cc-number"
               name="password"
               id="password"
               placeholder="Tu Password"
