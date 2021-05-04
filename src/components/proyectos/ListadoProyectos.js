@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import Proyecto from "./Proyecto";
 import proyectoContext from "../../context/proyectos/proyectoContext";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import AlertaContext from "../../context/alertas/alertaContext";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ListadoProyecto = () => {
   //Extraer proyectois de state inicial
