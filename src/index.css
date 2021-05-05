@@ -163,6 +163,10 @@ aside {
 .nombre-usuario span {
   font-weight: 900;
 }
+.nav-principal {
+  display: flex;
+}
+
 .nav-principal a {
   color: var(--blanco);
   text-decoration: none;
@@ -170,7 +174,9 @@ aside {
 .nav-principal a:first-of-type {
   margin-right: 2rem;
 }
-
+.nav-principal button {
+  margin-right: 10px;
+}
 /** Formulario crear y editar tareas **/
 .formulario {
   background-color: var(--gris3);

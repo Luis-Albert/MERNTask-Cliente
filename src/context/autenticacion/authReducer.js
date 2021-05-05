@@ -5,6 +5,7 @@ import {
   LOGIN_EXITOSO,
   LOGIN_ERROR,
   CERRAR_SESION,
+  BASE_USUARIOS,
 } from "../../types/index";
 
 export default (state, action) => {
@@ -18,13 +19,23 @@ export default (state, action) => {
         mensaje: null,
         cargando: false,
       };
+    case BASE_USUARIOS:
+      return {
+        ...state,
+        autenticado: true,
+        cargando: false,
+        usuarios: action.payload,
+      };
+
     case OBTENER_USUARIO:
       return {
         ...state,
         autenticado: true,
         usuario: action.payload,
         cargando: false,
+        usuarios: action.payload,
       };
+
     case CERRAR_SESION:
     case LOGIN_ERROR:
     case REGISTRO_ERROR:

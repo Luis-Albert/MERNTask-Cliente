@@ -12,6 +12,7 @@ import {
   LOGIN_EXITOSO,
   LOGIN_ERROR,
   CERRAR_SESION,
+  BASE_USUARIOS,
 } from "../../types/index";
 
 const AuthState = (props) => {
@@ -21,6 +22,7 @@ const AuthState = (props) => {
     usuario: null,
     mensaje: null,
     cargando: true,
+    usuarios: [],
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -56,7 +58,6 @@ const AuthState = (props) => {
       //TODO : Funcion para enviar el token por headers
       tokenAuth(token);
     }
-
     try {
       const respuesta = await clienteAxios.get("/api/auth");
       dispatch({
@@ -80,7 +81,7 @@ const AuthState = (props) => {
         payload: respuesta.data,
       });
       //obtener usuario
-     usuarioAutenticado();
+      usuarioAutenticado();
     } catch (error) {
       console.log(error.response.data.msg);
       const alerta = {
@@ -102,6 +103,31 @@ const AuthState = (props) => {
     });
   };
 
+  //Obtener todos los usuarios desde el admin
+  const obtenerTodosUsuarios = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      //TODO : Funcion para enviar el token por headers
+      tokenAuth(token);
+    }
+    try {
+      const resultado = await clienteAxios.get("/api/authUsers");
+      dispatch({
+        type: BASE_USUARIOS,
+        payload: resultado.data.usuarios,
+      });
+    } catch (error) {
+      const alerta = {
+        msg: "Hubo un error",
+        categoria: "alerta-error",
+      };
+      dispatch({
+        type: LOGIN_ERROR,
+        payload: alerta,
+      });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -110,10 +136,12 @@ const AuthState = (props) => {
         usuario: state.usuario,
         mensaje: state.mensaje,
         cargando: state.cargando,
+        usuarios: state.usuarios,
         registrarUsuario,
         usuarioAutenticado,
         iniciarSesion,
         cerrarSesion,
+        obtenerTodosUsuarios,
       }}
     >
       {props.children}
