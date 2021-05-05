@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Sidebar from "../layout/Sidebar";
 import Barra from "../layout/barra";
 import FormTarea from "../tareas/FormTarea";
@@ -9,7 +9,12 @@ import Usuarios from "../usuarios/Usuarios";
 const Proyectos = () => {
   //extraer la informacion de autenticacion
   const authContext = useContext(AuthContext);
-  const { usuarios } = authContext;
+  const { usuarios, usuarioAutenticado } = authContext;
+  useEffect(() => {
+    usuarioAutenticado();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="contenedor-app">
       <Sidebar />
